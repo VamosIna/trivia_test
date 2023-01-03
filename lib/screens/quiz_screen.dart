@@ -6,7 +6,7 @@ import 'package:trivia/components/gradient_widget.dart';
 import 'package:trivia/components/question_widget.dart';
 import 'package:trivia/shared/cubit/cubit.dart';
 import 'package:trivia/shared/cubit/states.dart';
-
+import 'dart:math';
 class QuizScreen extends StatelessWidget {
   const QuizScreen({Key? key}) : super(key: key);
   static const routeName = 'question_screen';
@@ -14,7 +14,11 @@ class QuizScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = QuizCubit.get(context);
     final quizList = cubit.quizList;
+    int max = 4;
+
+    int randomNumber = Random().nextInt(max) + 1;
     return BlocConsumer<QuizCubit, QuizStates>(
+
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
@@ -30,7 +34,7 @@ class QuizScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: LinearProgressIndicator(
-                                  value: cubit.questionIndex / 10,
+                                  value: cubit.questionIndex / cubit.quizList.length,
                                   minHeight: 10,
                                 ),
                               ),
@@ -66,12 +70,12 @@ class QuizScreen extends StatelessWidget {
                             flex: 3,
                             child: AnswersGrid(
                               choices: [
-                                quizList[cubit.questionIndex].correctAnswer,
-                                quizList[cubit.questionIndex]
+                                quizList[randomNumber].correctAnswer,
+                                quizList[randomNumber]
                                     .incorrectAnswers[0] as String,
-                                quizList[cubit.questionIndex]
+                                quizList[randomNumber]
                                     .incorrectAnswers[1] as String,
-                                quizList[cubit.questionIndex]
+                                quizList[randomNumber]
                                     .incorrectAnswers[2] as String,
                               ],
                             ),

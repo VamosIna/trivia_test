@@ -16,7 +16,6 @@ class DifficultyWidget extends StatelessWidget {
       builder: (context, state) {
         return InkWell(
           onTap: () => QuizCubit.get(context).startQuiz(
-            selectedDifficulty: difficulty,
             context: context,
           ),
           child: Container(

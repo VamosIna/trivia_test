@@ -19,19 +19,28 @@ class CategoryWidget extends StatelessWidget {
         return InkWell(
           onTap: () {
             QuizCubit.get(context).category = name;
-            Navigator.of(context).pushNamed(DifficultyScreen.routeName);
+            QuizCubit.get(context).startQuiz(
+              context: context,
+            );
           },
-          child: Container(
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              color: color,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+              side: BorderSide(
+                color: color,
+              ),
             ),
+            color: color,
             child: ListTile(
               trailing: Icon(Icons.arrow_circle_right_rounded),
               title: Text(
                     name,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+
               )
             ),
           ),

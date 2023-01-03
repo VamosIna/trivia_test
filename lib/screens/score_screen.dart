@@ -18,6 +18,10 @@ class ScoreScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          appBar: AppBar(
+            title: const Text('AppBar Demo'),
+
+          ),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -42,7 +46,10 @@ class ScoreScreen extends StatelessWidget {
                       //       var rnd = math.Random();
                       //       return QuisWidget(name: cubit.quizList[index].question, answer: cubit.quizList[index].correctAnswer,);
                       //     }),
-                  QuisWidget(name: cubit.quizList[cubit.questionIndex+1].question, answer: cubit.quizList[cubit.questionIndex+1].correctAnswer,)
+                      for (var i in cubit.quizList) ...[
+                        Divider(),
+                        QuisWidget(name: i.question, answer: i.correctAnswer,wrongAnswer: i.incorrectAnswers[0].toString(),)
+                      ],
                     ],
                   ),
                 ),

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 ThemeData myTheme = ThemeData(
   textTheme: const TextTheme(
     headline1: TextStyle(
-      fontSize: 32,
+      fontSize: 24,
       color: Colors.blueGrey,
       fontWeight: FontWeight.bold,
     ),
     headline2: TextStyle(
-      fontSize: 20,
+      fontSize: 18,
       color: Colors.grey,
       fontWeight: FontWeight.bold,
     ),
@@ -18,17 +18,17 @@ ThemeData myTheme = ThemeData(
       fontWeight: FontWeight.bold,
     ),
     headline4: TextStyle(
-      fontSize: 32,
+      fontSize: 24,
       color: Colors.black,
       fontWeight: FontWeight.bold,
     ),
     headline5: TextStyle(
-      fontSize: 32,
+      fontSize: 24,
       color: Colors.white,
       fontWeight: FontWeight.bold,
     ),
     headline6: TextStyle(
-      fontSize: 64,
+      fontSize: 24,
       color: Colors.white,
       fontWeight: FontWeight.bold,
     ),

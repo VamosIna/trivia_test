@@ -8,8 +8,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      backgroundColor: Color(0xFF14284f),
+      appBar: AppBar(
+        title: Text('Flutter Tutorial'),
+        backgroundColor: Color(0xFF14284f),
+      ),
       body: SafeArea(
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.only(
             right: 16,
             left: 16,
@@ -18,16 +23,6 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Let's Play",
-                style: textTheme.headline1,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Choose a category',
-                style: textTheme.headline2,
-              ),
-              const SizedBox(height: 16),
               const CategoryGrid(),
             ],
           ),

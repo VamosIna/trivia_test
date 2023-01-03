@@ -15,14 +15,13 @@ class QuizCubit extends Cubit<QuizStates> {
 
   final baseUrl = 'https://opentdb.com';
   late String category;
-  late String difficulty;
 
   int getCategoryNumber() => categoriesNumbers[category]!;
 
   void getQuestions() {
     final categoryNumber = getCategoryNumber();
     final url = Uri.parse(
-      '$baseUrl/api.php?amount=5&category=$categoryNumber&difficulty=$difficulty&type=multiple',
+      '$baseUrl/api.php?amount=5&category=$categoryNumber&difficulty=easy&type=multiple',
     );
     http.get(url).then((response) {
       debugPrint(response.toString());
@@ -47,18 +46,19 @@ class QuizCubit extends Cubit<QuizStates> {
   }
 
   final List<QuizModel> quizList = [];
+  final List<QuizModel> wrongAnswerList = [];
 
   int questionIndex = 0;
   int score = 0;
 
-  final maxSeconds = 10;
-  int seconds = 10;
+  final maxSeconds = 30;
+  int seconds = 30;
   Timer? timer;
   void startTimer(BuildContext context) {
     timer = Timer.periodic(
       const Duration(seconds: 1),
       (_) {
-        if (seconds >= 0) {
+        if (seconds > 0) {
           seconds--;
           emit(CountDownState());
         } else {
@@ -69,10 +69,8 @@ class QuizCubit extends Cubit<QuizStates> {
   }
 
   void startQuiz({
-    required String selectedDifficulty,
     required BuildContext context,
   }) {
-    difficulty = selectedDifficulty.toLowerCase();
     emit(GetQuestionLoadingState());
     getQuestions();
     Navigator.of(context).pushReplacementNamed(QuizScreen.routeName);
@@ -82,8 +80,9 @@ class QuizCubit extends Cubit<QuizStates> {
     required String answer,
     required BuildContext context,
   }) {
-    if (answer == quizList[questionIndex].correctAnswer) {
+    if (answer.contains(quizList[questionIndex].correctAnswer)) {
       score++;
+      print(answer +" = jawaban asli == "+quizList[questionIndex].correctAnswer.toString());
     }
     if (questionIndex == 4) {
       endQuiz(context);
