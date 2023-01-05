@@ -32,7 +32,7 @@ Third Party Plugins :
          - cubit
          - themes
       - repositories
-      - services
+      - services 
     - utils
 
 
