@@ -7,58 +7,120 @@ import '../components/category_widget.dart';
 import 'dart:math' as math;
 
 class QuisWidget extends StatelessWidget{
-  const QuisWidget({
-    required this.name,
-    required this.answer,
-    required this.wrongAnswer
+  QuisWidget({
+    this.name,
+    this.answer,
+    this.wrongAnswer,
+    this.trueAnswer,
+
 });
-  final String name;
-  final String answer;
-  final String wrongAnswer;
+  String? name;
+  String? answer;
+  List? wrongAnswer;
+  String? trueAnswer;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<QuizCubit, QuizStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        return InkWell(
-          child: Container(
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              color: Colors.blueGrey,
-            ),
-           child: Column(
-             children: [
-               Text(
-                 name,
-             style: TextStyle(
-                 fontSize: 20,
-                 color: Colors.white,
-                 fontStyle: FontStyle.italic,
-                 )
-               ),
-               Text(
-                   answer,
-                   style: TextStyle(
-                     fontSize: 16,
-                     color: Colors.white,
-                     fontWeight: FontWeight.bold,
-                     fontStyle: FontStyle.italic,
-                   )
-               ),
-               Text(
-                   wrongAnswer,
-                   style: TextStyle(
-                     fontSize: 16,
-                     color: Colors.redAccent,
-                     fontWeight: FontWeight.bold,
-                     fontStyle: FontStyle.italic,
-                   )
-               ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              child:  Row(
+                children: [
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width*0.8,
+                              child: Text(
+                                name.toString(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.normal,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Text(
+                        //     "Your Answer : $answer",
+                        //     style: TextStyle(
+                        //       fontSize: 16,
+                        //       color: Colors.white,
+                        //       fontWeight: FontWeight.bold,
+                        //       fontStyle: FontStyle.italic,
+                        //     )
+                        // ),
+                        //
+                        // Text(
+                        //     "lighter : ${trueAnswer} a.k.a Correct",
+                        //     style: TextStyle(
+                        //       fontSize: 16,
+                        //       color: Colors.black,
+                        //       fontWeight: FontWeight.bold,
+                        //       fontStyle: FontStyle.italic,
+                        //     )
+                        // ),
+                        trueAnswer == answer ? RichText(
+                          text: TextSpan(
+                              text: '$answer',
+                              children: [
+                                WidgetSpan(
+                                    child: Icon(
+                                        Icons.done,
+                                      color: Colors.green,
+                                    )),
+                              ]),
+                        ) : Row(
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                  text: '$answer',
+                                  children: [
+                                    WidgetSpan(
+                                        child: Icon(
+                                          Icons.close,
+                                          color: Colors.red,
+                                        )),
+                                  ]),
+                            ),
+                            Spacer(),
+                            RichText(
+                              text: TextSpan(
+                                  text: '$trueAnswer',
+                                  children: [
+                                    WidgetSpan(
+                                        child: Icon(
+                                          Icons.done,
+                                          color: Colors.green,
+                                        )),
+                                  ]),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Padding(padding: EdgeInsets.only(top: 8,bottom: 8)),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            )
+          ],
 
-             ],
-           ),
-          ),
         );
       },
     );

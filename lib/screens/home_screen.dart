@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trivia/components/category_grid.dart';
 
+import 'main_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const routeName = 'home_screen';
@@ -10,8 +12,19 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF14284f),
       appBar: AppBar(
-        title: Text('Flutter Tutorial'),
+        title: const Text("Topics"),
+        titleSpacing: 00.0,
+        centerTitle: true,
+        elevation: 0.00,
         backgroundColor: Color(0xFF14284f),
+        leading:                   IconButton(
+          icon: Icon(
+              Icons.arrow_back_ios,
+              size: 20),
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed(MainScreen.routeName);
+          },
+        ),
       ),
       body: SafeArea(
         child: Container(

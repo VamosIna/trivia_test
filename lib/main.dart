@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trivia/screens/difficulty_screen.dart';
 import 'package:trivia/screens/home_screen.dart';
+import 'package:trivia/screens/main_screen.dart';
 import 'package:trivia/screens/quiz_screen.dart';
 import 'package:trivia/screens/score_screen.dart';
+import 'package:trivia/screens/score_screen_final.dart';
 import 'package:trivia/shared/bloc_observer.dart';
 import 'package:trivia/shared/cubit/cubit.dart';
 import 'package:trivia/shared/cubit/states.dart';
@@ -27,13 +29,15 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
-            home: const HomeScreen(),
+            debugShowCheckedModeBanner: false,
+            home: const MainScreen(),
             theme: myTheme,
             routes: {
+              MainScreen.routeName:(context)=> const MainScreen(),
               HomeScreen.routeName: (context) => const HomeScreen(),
               QuizScreen.routeName: (context) => const QuizScreen(),
               DifficultyScreen.routeName: (context) => const DifficultyScreen(),
-              ScoreScreen.routeName: (context) => const ScoreScreen(),
+              ScoreScreen.routeName: (context) =>  ScoreScreen(),
             },
           );
         },
