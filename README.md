@@ -35,3 +35,15 @@ Third Party Plugins :
       - services
     - utils
 
+
+### Screenshoot in App
+
+[![Screenshot-2023-01-05-21-08-45-334-com-example-trivia.jpg](https://i.postimg.cc/rm7Q5q4L/Screenshot-2023-01-05-21-08-45-334-com-example-trivia.jpg)](https://postimg.cc/DJdrTk5C) [![Screenshot-2023-01-05-21-08-50-116-com-example-trivia.jpg](https://i.postimg.cc/FFJPNJtF/Screenshot-2023-01-05-21-08-50-116-com-example-trivia.jpg)](https://postimg.cc/kDqNyGXL)
+[![Screenshot-2023-01-05-21-08-54-972-com-example-trivia.jpg](https://i.postimg.cc/9F5LMFVd/Screenshot-2023-01-05-21-08-54-972-com-example-trivia.jpg)](https://postimg.cc/s1mYHzMx)
+[![Screenshot-2023-01-05-21-08-58-933-com-example-trivia.jpg](https://i.postimg.cc/Vkz4qGJ5/Screenshot-2023-01-05-21-08-58-933-com-example-trivia.jpg)](https://postimg.cc/bsFQ8RHj)
+[![Screenshot-2023-01-05-21-09-03-137-com-example-trivia.jpg](https://i.postimg.cc/SKsr5n7h/Screenshot-2023-01-05-21-09-03-137-com-example-trivia.jpg)](https://postimg.cc/WdBgqbHW)
+[![Screenshot-2023-01-05-21-09-07-075-android.jpg](https://i.postimg.cc/0yZncYSn/Screenshot-2023-01-05-21-09-07-075-android.jpg)](https://postimg.cc/NK9R0rp2)
+[![Screenshot-2023-01-05-21-09-17-135-android.jpg](https://i.postimg.cc/28Q2BR8P/Screenshot-2023-01-05-21-09-17-135-android.jpg)](https://postimg.cc/SJKWwP9r)
+
+
+
